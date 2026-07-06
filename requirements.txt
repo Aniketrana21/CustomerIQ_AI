@@ -1,0 +1,14 @@
+# requirements.txt
+# ─────────────────────────────────────────────
+# WHY THIS FILE?
+# Streamlit Cloud reads this to install dependencies.
+# Pin versions so your app doesn't break if a library updates.
+# Only list what's NOT already in Python's standard library.
+# ─────────────────────────────────────────────
+
+streamlit>=1.30.0
+pandas>=2.0.0
+numpy>=1.24.0
+plotly>=5.18.0
+scikit-learn>=1.3.0
+kneed>=0.8.5

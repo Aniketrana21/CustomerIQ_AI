@@ -1,0 +1,17 @@
+# .streamlit/config.toml
+# ─────────────────────────────────────────────
+# WHY THIS FILE?
+# Streamlit reads this automatically on startup.
+# It sets the visual theme BEFORE any Python runs.
+# Dark themes look more professional for data-science dashboards.
+# ─────────────────────────────────────────────
+
+[theme]
+primaryColor = "#6C63FF"          # Purple accent — buttons, sliders, links
+backgroundColor = "#0E1117"       # Deep dark background
+secondaryBackgroundColor = "#1A1D29"  # Sidebar & card backgrounds
+textColor = "#FAFAFA"             # Bright white text for contrast
+font = "sans serif"               # Clean, modern font
+
+[server]
+headless = true                   # Required for cloud deployment (no browser popup)

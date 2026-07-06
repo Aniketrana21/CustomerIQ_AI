@@ -1,0 +1,147 @@
+/* ══════════════════════════════════════════════════════════
+   SmartCart Clustering System — Global Styles
+   ══════════════════════════════════════════════════════════
+   Loaded by app.py via inject_css(). Keeps styling separate
+   from logic so recruiters see clean, modular code.
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Import Google Font for premium typography ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ══════════════════════════════════════════════
+   FIX: Force dark background & text colors
+   ──────────────────────────────────────────────
+   Without these, Streamlit may default to a white
+   background, making the light-colored text invisible.
+   The !important overrides ensure the dark theme is
+   always applied, regardless of Streamlit's internal
+   theme loading order.
+   ══════════════════════════════════════════════ */
+.stApp {
+    background-color: #0E1117 !important;
+    color: #FAFAFA !important;
+}
+
+[data-testid="stAppViewContainer"] {
+    background-color: #0E1117 !important;
+}
+
+[data-testid="stHeader"] {
+    background-color: rgba(14, 17, 23, 0.8) !important;
+}
+
+.stMarkdown, .stText, p, span, label, li {
+    color: #FAFAFA !important;
+}
+
+/* ── Apply font globally ── */
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ══════════════════════════════════════════════
+   Hero Header — Gradient banner at top of each page
+   ══════════════════════════════════════════════ */
+.hero-header {
+    background: linear-gradient(135deg, #6C63FF 0%, #3B82F6 50%, #06B6D4 100%);
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(108, 99, 255, 0.3);
+}
+.hero-header h1 {
+    color: white !important;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+.hero-header p {
+    color: rgba(255,255,255,0.85) !important;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    font-weight: 300;
+}
+
+/* ══════════════════════════════════════════════
+   Metric Cards — KPI tiles with hover animation
+   ══════════════════════════════════════════════ */
+.metric-card {
+    background: linear-gradient(145deg, #1A1D29 0%, #252836 100%);
+    border: 1px solid rgba(108, 99, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.25);
+}
+.metric-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #6C63FF, #06B6D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.metric-label {
+    color: #9CA3AF !important;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ══════════════════════════════════════════════
+   Section Headers — Left-accented dividers
+   ══════════════════════════════════════════════ */
+.section-header {
+    border-left: 4px solid #6C63FF;
+    padding-left: 1rem;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #FAFAFA !important;
+}
+
+/* ══════════════════════════════════════════════
+   Cluster Profile Cards
+   ══════════════════════════════════════════════ */
+.cluster-card {
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.2s ease;
+}
+.cluster-card:hover {
+    transform: scale(1.02);
+}
+.cluster-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+.cluster-card p {
+    margin: 0.3rem 0;
+    color: #D1D5DB !important;
+    font-size: 0.95rem;
+}
+
+/* ══════════════════════════════════════════════
+   Chrome — Hide default Streamlit UI clutter
+   ══════════════════════════════════════════════ */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+
+/* ── Smooth scrollbar ── */
+::-webkit-scrollbar {width: 8px;}
+::-webkit-scrollbar-track {background: #0E1117;}
+::-webkit-scrollbar-thumb {background: #6C63FF; border-radius: 4px;}
+
+/* ── Sidebar styling ── */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #0E1117 0%, #1A1D29 100%);
+}
