@@ -20,8 +20,8 @@ An end-to-end Machine Learning application that transforms customer purchase dat
 <img src="https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-orange.svg">
 </a>
 
-<a href="https://streamlit.io/">
-<img src="https://img.shields.io/badge/Streamlit-Live%20Demo-red.svg">
+<a href="https://customeriq-2026.streamlit.app/">
+  <img src="https://img.shields.io/badge/🚀-Live%20Demo-red?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live Demo">
 </a>
 
 <img src="https://img.shields.io/badge/Status-Completed-success">
@@ -36,13 +36,13 @@ An end-to-end Machine Learning application that transforms customer purchase dat
 
 
 
-```
+
 <p align="center">
   <a href="https://customeriq-2026.streamlit.app/" target="_blank">
     🚀 Live Demo
   </a>
 </p>
-```
+
 
 ---
 
