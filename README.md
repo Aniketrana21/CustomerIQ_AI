@@ -37,7 +37,7 @@ An end-to-end Machine Learning application that transforms customer purchase dat
 
 
 
-<p align="center">
+<p align="left">
   <a href="https://customeriq-2026.streamlit.app/" target="_blank">
     🚀 Live Demo
   </a>
