@@ -34,10 +34,10 @@ An end-to-end Machine Learning application that transforms customer purchase dat
 
 ## 🌐 Live Demo
 
-🚀 Coming Soon...
+
 
 ```
-https://YOUR_STREAMLIT_APP.streamlit.app
+[https://YOUR_STREAMLIT_APP.streamlit.app](https://customeriq-2026.streamlit.app/)
 ```
 
 ---
