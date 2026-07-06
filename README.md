@@ -21,7 +21,7 @@ An end-to-end Machine Learning application that transforms customer purchase dat
 </a>
 
 <a href="https://customeriq-2026.streamlit.app/">
-  <img src="https://img.shields.io/badge/🚀-Live%20Demo-red?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live Demo">
+  <img src="https://img.shields.io/badge/Live%20Demo-Streamlit-red.svg?logo=streamlit&logoColor=white" alt="Live Demo">
 </a>
 
 <img src="https://img.shields.io/badge/Status-Completed-success">
