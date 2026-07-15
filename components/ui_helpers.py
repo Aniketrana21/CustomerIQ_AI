@@ -50,36 +50,91 @@ def get_cluster_profiles(df_encoded, labels):
     df_temp["Cluster"] = labels
     summary = df_temp.groupby("Cluster").mean()
 
+    # profiles = {}
+    # for cluster_id in sorted(summary.index):
+    #     row = summary.loc[cluster_id]
+    #     income = row.get("Income", 0)
+    #     spending = row.get("Total_spending", 0)
+    #     recency = row.get("Recency", 0)
+    #     children = row.get("Total_children", 0)
+    #
+    #     # Rule-based labeling using cluster characteristics
+    #     if spending > summary["Total_spending"].median() and income > summary["Income"].median():
+    #         label = "💎 Premium Loyalists"
+    #         desc = "High income, high spending customers. Your VIPs — invest in retention & exclusive offers."
+    #         color = "#6C63FF"
+    #     elif children > summary["Total_children"].median() and spending <= summary["Total_spending"].median():
+    #         label = "👨‍👩‍👧‍👦 Budget Families"
+    #         desc = "Family-oriented, price-sensitive shoppers. Target with bundles, deals & family packs."
+    #         color = "#06B6D4"
+    #     elif recency > summary["Recency"].median() and spending <= summary["Total_spending"].median():
+    #         label = "😴 Dormant Customers"
+    #         desc = "Haven't purchased recently. Need re-engagement campaigns, win-back offers."
+    #         color = "#EF4444"
+    #     else:
+    #         label = "🌟 Rising Spenders"
+    #         desc = "Mid-range customers with growth potential. Upsell opportunities & loyalty programs."
+    #         color = "#10B981"
+    #
+    #     profiles[cluster_id] = {
+    #         "label": label, "description": desc, "color": color,
+    #         "income": income, "spending": spending,
+    #         "recency": recency, "children": children
+    #     }
     profiles = {}
-    for cluster_id in sorted(summary.index):
-        row = summary.loc[cluster_id]
-        income = row.get("Income", 0)
-        spending = row.get("Total_spending", 0)
-        recency = row.get("Recency", 0)
-        children = row.get("Total_children", 0)
 
-        # Rule-based labeling using cluster characteristics
-        if spending > summary["Total_spending"].median() and income > summary["Income"].median():
-            label = "💎 Premium Loyalists"
-            desc = "High income, high spending customers. Your VIPs — invest in retention & exclusive offers."
-            color = "#6C63FF"
-        elif children > summary["Total_children"].median() and spending <= summary["Total_spending"].median():
-            label = "👨‍👩‍👧‍👦 Budget Families"
-            desc = "Family-oriented, price-sensitive shoppers. Target with bundles, deals & family packs."
-            color = "#06B6D4"
-        elif recency > summary["Recency"].median() and spending <= summary["Total_spending"].median():
-            label = "😴 Dormant Customers"
-            desc = "Haven't purchased recently. Need re-engagement campaigns, win-back offers."
-            color = "#EF4444"
-        else:
-            label = "🌟 Rising Spenders"
-            desc = "Mid-range customers with growth potential. Upsell opportunities & loyalty programs."
-            color = "#10B981"
+    # Rank clusters
+    highest_spending = summary["Total_spending"].idxmax()
+    lowest_spending = summary["Total_spending"].idxmin()
+
+    remaining = [c for c in summary.index if c not in [highest_spending, lowest_spending]]
+
+    highest_income_remaining = summary.loc[remaining]["Income"].idxmax()
+
+    last_cluster = [c for c in summary.index if c not in
+                    [highest_spending, lowest_spending, highest_income_remaining]][0]
+
+    cluster_mapping = {
+        highest_spending: (
+            "💎 Premium Loyalists",
+            "High income, high spending customers. Invest in loyalty programs and exclusive offers.",
+            "#6C63FF"
+        ),
+
+        lowest_spending: (
+            "😴 Dormant Customers",
+            "Low engagement customers requiring win-back campaigns and personalized offers.",
+            "#EF4444"
+        ),
+
+        highest_income_remaining: (
+            "🌟 Rising Spenders",
+            "Customers with good purchasing potential. Ideal for upselling and cross-selling.",
+            "#10B981"
+        ),
+
+        last_cluster: (
+            "👨‍👩‍👧‍👦 Budget Families",
+            "Price-conscious family shoppers. Target with bundles and discounts.",
+            "#06B6D4"
+        ),
+    }
+
+    for cluster_id in summary.index:
+        income = summary.loc[cluster_id, "Income"]
+        spending = summary.loc[cluster_id, "Total_spending"]
+        recency = summary.loc[cluster_id, "Recency"]
+        children = summary.loc[cluster_id, "Total_children"]
+
+        label, desc, color = cluster_mapping[cluster_id]
 
         profiles[cluster_id] = {
-            "label": label, "description": desc, "color": color,
-            "income": income, "spending": spending,
-            "recency": recency, "children": children
+            "label": label,
+            "description": desc,
+            "color": color,
+            "income": income,
+            "spending": spending,
+            "recency": recency,
+            "children": children
         }
-
     return profiles, summary
