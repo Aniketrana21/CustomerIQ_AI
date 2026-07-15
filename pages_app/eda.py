@@ -78,7 +78,7 @@ def render(df_full, df_cleaned):
 
     fig = px.bar(
         spend_means, x="Category", y="Average Spend",
-        color="Average Spend (Rs)",
+        color="Average Spend",
         color_continuous_scale=["#06B6D4", "#6C63FF", "#A855F7"],
         title="Average Spending by Product Category"
     )
