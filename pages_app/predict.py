@@ -49,7 +49,7 @@ def render(df_encoded, labels_kmeans, pca_data, kmeans_final, scaler, pca):
         education = st.selectbox("🎓 Education", ["UnderGraduate", "Graduate", "PostGraduate"])
 
     with col2:
-        total_spending = st.slider("🛒 Total Spending (Rs)", 0, 25000, 500, step=1)
+        total_spending = st.slider("🛒 Total Spending (Rs)", 0, 25000, 500, step=500)
         recency = st.slider("⏰ Days Since Last Purchase", 0, 100, 30)
         living = st.selectbox("🏠 Living With", ["Alone", "Partner"])
 
