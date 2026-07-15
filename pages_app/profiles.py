@@ -71,8 +71,8 @@ def render(df_encoded, labels_kmeans, pca_data):
                 <h3>{profile['label']}</h3>
                 <p><strong>{count} customers ({pct}%)</strong></p>
                 <p>{profile['description']}</p>
-                <p>📈 Avg Income: <strong>${profile['income']:,.0f}</strong></p>
-                <p>🛒 Avg Spending: <strong>${profile['spending']:,.0f}</strong></p>
+                <p>📈 Avg Income: <strong>Rs.{profile['income']:,.0f}</strong></p>
+                <p>🛒 Avg Spending: <strong>Rs.{profile['spending']:,.0f}</strong></p>
                 <p>⏰ Avg Recency: <strong>{profile['recency']:.0f} days</strong></p>
                 <p>👶 Avg Children: <strong>{profile['children']:.1f}</strong></p>
             </div>
@@ -101,8 +101,8 @@ def render(df_encoded, labels_kmeans, pca_data):
         plot_bgcolor=CHART_BG,
         font=CHART_FONT,
         height=500,
-        xaxis_title="Annual Income ($)",
-        yaxis_title="Total Spending ($)"
+        xaxis_title="Annual Income (Rs)",
+        yaxis_title="Total Spending (Rs)"
     )
     st.plotly_chart(fig, use_container_width=True)
 
